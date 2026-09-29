@@ -2,6 +2,8 @@
 Workshop: Workflows as enabler of AI-based materials design - pyiron
 
 ## Part 1 - Introduction and latest features of pyiron
+Based on the internal [notebooks.mpcdf.mpg.de/binder](https://notebooks.mpcdf.mpg.de/binder):
+
 [![Binder](https://notebooks.mpcdf.mpg.de/binder/badge_logo.svg)](https://notebooks.mpcdf.mpg.de/binder/v2/gl/samsstud%2Fpmd-workshop-2026/HEAD)
 
 ## Part 2 - Introduction to pyiron_aiflow
