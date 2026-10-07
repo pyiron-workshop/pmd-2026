@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img"
+     aria-label="One typed workflow graph - Linspace, GrainGrowth, HallPetch, PlotYieldStrength - reached through three equal interfaces: the visual editor, a Python script, and an AI assistant, all resting on shared services for execution, caching, provenance and executors.">
+  <defs>
+    <marker id="ahn" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#6b6b6b"/>
+    </marker>
+    <marker id="ahg" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#009E73"/>
+    </marker>
+    <style>
+      .title { font: 700 19px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .sub   { font: 400 13px Helvetica, Arial, sans-serif; fill:#6b6b6b }
+      .hlab  { font: 700 13px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .cap   { font: 400 12px Helvetica, Arial, sans-serif; fill:#6b6b6b }
+      .glab  { font: 700 12.5px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .nname { font: 700 12px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .nsub  { font: 400 10px Helvetica, Arial, sans-serif; fill:#6b6b6b }
+      .mono  { font: 400 11px "SF Mono", Menlo, Consolas, monospace; fill:#1a1a1a }
+      .quote { font: italic 400 11.5px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .tiny  { font: 700 9px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .svc   { font: 700 13px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .card  { fill:#ffffff; stroke:#0072B2; stroke-width:1.5 }
+      .hdr   { fill:#eef3f8 }
+      .nedge { fill:none; stroke:#6b6b6b; stroke-width:1.6 }
+      .dedge { fill:none; stroke:#009E73; stroke-width:1.6 }
+      .nbox  { fill:#eef3f8; stroke:#0072B2; stroke-width:1.2 }
+      .pbox  { fill:#fbfcfd; stroke:#dddddd; stroke-width:1 }
+      .abox  { fill:#fdeee3; stroke:#D55E00; stroke-width:1.2 }
+      .gbox  { fill:#e8f6f1; stroke:#009E73; stroke-width:1 }
+      .gdot  { fill:#009E73 }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="540" fill="#ffffff"/>
+
+  <text class="title" x="20" y="34">One object, three ways in</text>
+  <text class="sub"   x="20" y="56">The chain you build in Part 2 is a single typed graph &#183; the three interfaces are equals, not a hierarchy</text>
+
+  <!-- ══════════ interface 1 — visual editor ══════════ -->
+  <g>
+    <rect class="card" x="20" y="80" width="300" height="152" rx="7"/>
+    <path class="hdr" d="M20.75,86.75 a6,6 0 0 1 6,-6 H313.25 a6,6 0 0 1 6,6 V106 H20.75 Z"/>
+    <path d="M20.75,106 H319.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="hlab" x="36" y="99">Visual editor</text>
+
+    <rect class="pbox" x="36" y="118" width="268" height="86" rx="4" stroke-dasharray="4 3"/>
+    <rect class="nbox" x="54" y="132" width="86" height="30" rx="4"/>
+    <text class="nsub" x="97" y="151" text-anchor="middle" fill="#1a1a1a">GrainGrowth</text>
+    <rect class="nbox" x="200" y="132" width="86" height="30" rx="4"/>
+    <text class="nsub" x="243" y="151" text-anchor="middle" fill="#1a1a1a">HallPetch</text>
+    <circle class="gdot" cx="140" cy="147" r="3"/>
+    <circle class="gdot" cx="200" cy="147" r="3"/>
+    <path class="dedge" d="M143,147 L198,147" marker-end="url(#ahg)"/>
+    <rect class="gbox" x="54" y="174" width="50" height="17" rx="8.5"/>
+    <text class="tiny" x="79" y="186" text-anchor="middle">&#9654; Run</text>
+
+    <text class="cap" x="36" y="222">drag &#183; connect &#183; press &#9654; Run</text>
+  </g>
+
+  <!-- ══════════ interface 2 — Python ══════════ -->
+  <g>
+    <rect class="card" x="350" y="80" width="300" height="152" rx="7"/>
+    <path class="hdr" d="M350.75,86.75 a6,6 0 0 1 6,-6 H643.25 a6,6 0 0 1 6,6 V106 H350.75 Z"/>
+    <path d="M350.75,106 H649.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="hlab" x="366" y="99">Python</text>
+
+    <rect class="pbox" x="366" y="118" width="268" height="86" rx="4"/>
+    <text class="mono" x="378" y="140">wf.grain = GrainGrowth(</text>
+    <text class="mono" x="404" y="158">temperature_K=1123.0,</text>
+    <text class="mono" x="404" y="176">time=wf.anneal_times)</text>
+
+    <text class="cap" x="366" y="222">construct &#183; version &#183; share</text>
+  </g>
+
+  <!-- ══════════ interface 3 — AI assistant ══════════ -->
+  <g>
+    <rect class="card" x="680" y="80" width="300" height="152" rx="7"/>
+    <path class="hdr" d="M680.75,86.75 a6,6 0 0 1 6,-6 H973.25 a6,6 0 0 1 6,6 V106 H680.75 Z"/>
+    <path d="M680.75,106 H979.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="hlab" x="696" y="99">AI assistant</text>
+
+    <rect class="abox" x="696" y="118" width="268" height="86" rx="4"/>
+    <text class="quote" x="708" y="140">&#8220;Make a workflow that tells whether</text>
+    <text class="quote" x="708" y="158">deformation is TRIP- or TWIP-</text>
+    <text class="quote" x="708" y="176">dominated.&#8221;</text>
+
+    <text class="cap" x="696" y="222">describe it &#183; then check it</text>
+  </g>
+
+  <!-- ══════════ three identical arrows into the graph ══════════ -->
+  <path class="nedge" d="M170,242 L170,285" marker-end="url(#ahn)"/>
+  <path class="nedge" d="M500,242 L500,285" marker-end="url(#ahn)"/>
+  <path class="nedge" d="M830,242 L830,285" marker-end="url(#ahn)"/>
+
+  <!-- ══════════ the graph ══════════ -->
+  <g>
+    <rect class="card" x="110" y="290" width="780" height="130" rx="8"/>
+    <path class="hdr" d="M110.75,296.75 a6,6 0 0 1 6,-6 H883.25 a6,6 0 0 1 6,6 V316 H110.75 Z"/>
+    <path d="M110.75,316 H889.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="glab" x="126" y="309">The graph &#8212; one typed object: inspectable, re-runnable, shareable</text>
+
+    <rect class="nbox" x="126" y="334" width="148" height="48" rx="5"/>
+    <text class="nname" x="200" y="356" text-anchor="middle">Linspace</text>
+    <text class="nsub"  x="200" y="372" text-anchor="middle">annealing times</text>
+
+    <rect class="nbox" x="326" y="334" width="148" height="48" rx="5"/>
+    <text class="nname" x="400" y="356" text-anchor="middle">GrainGrowth</text>
+    <text class="nsub"  x="400" y="372" text-anchor="middle">grain size</text>
+
+    <rect class="nbox" x="526" y="334" width="148" height="48" rx="5"/>
+    <text class="nname" x="600" y="356" text-anchor="middle">HallPetch</text>
+    <text class="nsub"  x="600" y="372" text-anchor="middle">yield strength</text>
+
+    <rect class="nbox" x="726" y="334" width="148" height="48" rx="5"/>
+    <text class="nname" x="800" y="356" text-anchor="middle">PlotYieldStrength</text>
+    <text class="nsub"  x="800" y="372" text-anchor="middle">figure</text>
+
+    <circle class="gdot" cx="274" cy="358" r="3"/>
+    <circle class="gdot" cx="326" cy="358" r="3"/>
+    <circle class="gdot" cx="474" cy="358" r="3"/>
+    <circle class="gdot" cx="526" cy="358" r="3"/>
+    <circle class="gdot" cx="674" cy="358" r="3"/>
+    <circle class="gdot" cx="726" cy="358" r="3"/>
+    <path class="dedge" d="M277,358 L324,358" marker-end="url(#ahg)"/>
+    <path class="dedge" d="M477,358 L524,358" marker-end="url(#ahg)"/>
+    <path class="dedge" d="M677,358 L724,358" marker-end="url(#ahg)"/>
+    <!-- the fork: grain size also feeds the plot -->
+    <path class="dedge" d="M470,382 C 470,398 484,402 512,402 L 748,402 C 774,402 780,398 780,387"
+          marker-end="url(#ahg)"/>
+  </g>
+
+  <!-- ══════════ shared services ══════════ -->
+  <path class="nedge" d="M500,422 L500,443" marker-end="url(#ahn)"/>
+  <rect x="110" y="450" width="780" height="46" rx="6" fill="#f4f6f8" stroke="#dddddd" stroke-width="1"/>
+  <text class="svc" x="500" y="471" text-anchor="middle">execution &#183; caching &#183; provenance &#183; executors</text>
+  <text class="cap" x="500" y="487" text-anchor="middle">shared services, whichever way you came in</text>
+
+  <text class="sub" x="20" y="523">Today is mostly the visual editor &#8212; the Python script and the AI assistant produce exactly the same object.</text>
+</svg>

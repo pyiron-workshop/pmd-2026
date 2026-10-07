@@ -470,8 +470,7 @@ object rather than a habit, it is inspectable, re-runnable, cacheable, transfera
 parallelisable, and comparable between two versions.</p>
 <p><strong>And you do not have to write code to build one.</strong> In aiflow, the chain is a <em>graph</em>,
 and that one graph has three interfaces:</p>
-<p><img src="figures/intro_three_interfaces.svg" width="820"
-     alt="One typed workflow graph - Linspace, GrainGrowth, HallPetch, PlotYieldStrength - exposed through three interfaces: visual editor, Python, and AI assistant."></p>
+<p><img alt="One typed workflow graph - Linspace, GrainGrowth, HallPetch, PlotYieldStrength - exposed through three interfaces: visual editor, Python, and AI assistant." src="_images/intro_three_interfaces.svg" /></p>
 <p>Today is mostly the visual editor. The Python and the AI assistant will show up at the
 end — and you will see that they are producing exactly the same thing you built by hand.</p>
 </section>
@@ -494,7 +493,7 @@ keyboard skill this session requires.)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a1fc31d3e0274e369eb180efabdb6845", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa8eb7b3a10&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "127c014a687940999f6e97d966d44fc6"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7ad42159abd0&gt;
 </pre></div>
 </div>
 </div>
@@ -690,7 +689,7 @@ workflow to the editor and it appears on the canvas, laid out and ready to run.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9ff110ea64104d8c850d8fd890605df2", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa72c19d190&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1b38006a23b44bb7834548c867fc81ad"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7ad41c350410&gt;
 </pre></div>
 </div>
 </div>
@@ -767,7 +766,7 @@ insist that it actually executes, and how many repair attempts to allow.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4bf37efe6344effaea77176e25d881e", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa72c36ba10&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "052376040b5c4437b587d069a5952c7c"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7ad41c36a2d0&gt;
 </pre></div>
 </div>
 </div>
@@ -969,7 +968,7 @@ and press <strong>▶ Run</strong> again. You get <strong>a₀ ≈ 3.487 Å</str
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8362920cdde041efa4bdcf6388110686", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa71f012c30&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5e80a619a09540aabce8f018cf7c6651"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7ad41c133290&gt;
 </pre></div>
 </div>
 </div>
@@ -984,7 +983,7 @@ and press <strong>▶ Run</strong> again. You get <strong>a₀ ≈ 3.487 Å</str
 
 <span class="c1"># The shared workflow library - exactly what the browser's "Workflows" section shows.</span>
 <span class="n">WORKFLOWS</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">paths</span><span class="o">.</span><span class="n">WORKFLOW_STORAGE</span><span class="p">)</span>
-<span class="n">aa</span>
+
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Cu"</span><span class="p">,</span> <span class="s2">"Ni"</span><span class="p">]:</span>
     <span class="n">wf_eos</span> <span class="o">=</span> <span class="n">Workflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">WORKFLOWS</span> <span class="o">/</span> <span class="s2">"Cu_bulk_modulus.py"</span><span class="p">)</span>
     <span class="n">wf_eos</span><span class="o">.</span><span class="n">cu_fcc</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">element</span>
