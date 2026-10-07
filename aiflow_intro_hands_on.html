@@ -1,0 +1,1188 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Building materials workflows without writing code &#8212; Platform Material Digital</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'aiflow_intro_hands_on';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Platform Material Digital General Assembly" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Platform Material Digital</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Platform Material Digital General Assembly
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building materials workflows without writing code</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/pyiron-workshop/pmd-2026/master?urlpath=lab/tree/aiflow_intro_hands_on.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/aiflow_intro_hands_on.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Building materials workflows without writing code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hands-on-introduction-to-pyiron-aiflow">A hands-on introduction to <strong>pyiron aiflow</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-why-an-explicit-workflow-layer">Part 0 — Why an explicit workflow layer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-open-the-editor">Part 1 — Open the editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-are-looking-at">What you are looking at</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-only-three-concepts-you-need">The only three concepts you need</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-build-a-workflow-by-hand">Part 2 — Build a workflow by hand</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step by step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-and-notice-what-just-happened">Stop and notice what just happened</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-group-it-sweep-it-and-see-the-code-it-wrote">Part 3 — Group it, sweep it, and see the code it wrote</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-making-a-reusable-process-step">Grouping: making a reusable process step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sweeping-the-parameter-study-you-didn-t-have-to-write">Sweeping: the parameter study you didn’t have to write</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-reveal">The reveal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-more-thing-the-graph-buys-you-caching">One more thing the graph buys you: caching</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-an-ai-generated-workflow">Part 4 — An AI-generated workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-question">The question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-prompt">The prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it">Try it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-for-ai-guided-research">Why this matters for AI-guided research</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-read-this-particular-result-critically">So read this particular result critically</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-where-to-go-next">Part 5 — Where to go next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-real-simulation-same-machinery">Appendix — A real simulation, same machinery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Try it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-trust-either-number-look-at-the-plot">⚠️ Before you trust either number, look at the plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-the-engine-is-just-another-node">And the engine is just another node</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="building-materials-workflows-without-writing-code">
+<h1>Building materials workflows without writing code<a class="headerlink" href="#building-materials-workflows-without-writing-code" title="Link to this heading">#</a></h1>
+<section id="a-hands-on-introduction-to-pyiron-aiflow">
+<h2>A hands-on introduction to <strong>pyiron aiflow</strong><a class="headerlink" href="#a-hands-on-introduction-to-pyiron-aiflow" title="Link to this heading">#</a></h2>
+<p>Presenters: Dr. Jan Janssen, Prof. Dr. Jörg Neugebauer, Max Planck Institute for Sustainable Materials</p>
+<p>The objective of this session is that at the end you will have:</p>
+<ol class="arabic simple">
+<li><p>built a complete process–property model yourself, in a visual editor;</p></li>
+<li><p>run a real simulation related to materials design and changed key process parameters to understand their impact on materials properties;</p></li>
+<li><p>seen a workflow that an AI assistant wrote from a single sentence — and, more
+importantly, seen how to <em>check</em> it.</p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Task</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong></p></td>
+<td><p>Why an explicit workflow layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong></p></td>
+<td><p>Open the editor</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong></p></td>
+<td><p>Build a workflow by hand</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>Group it, sweep it, and see the code it wrote</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong></p></td>
+<td><p>An AI-generated workflow, and what that means for research</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>5</strong></p></td>
+<td><p>Where to go next</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="part-0-why-an-explicit-workflow-layer">
+<h2>Part 0 — Why an explicit workflow layer<a class="headerlink" href="#part-0-why-an-explicit-workflow-layer" title="Link to this heading">#</a></h2>
+<p>A materials property is almost never one calculation. It is a <strong>chain</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> composition / process data  →  model  →  property  →  decision
+</pre></div>
+</div>
+<p>In day-to-day practice that chain lives in three scripts, a spreadsheet, and one person’s
+head. That works, right up until it doesn’t. Five things break, and they will all be
+familiar:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>What breaks</p></th>
+<th class="head"><p>How it shows up</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Provenance</strong></p></td>
+<td><p>A number is in a report. Which potential, which mesh, which temperature produced it? Nobody can say.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Reuse</strong></p></td>
+<td><p>The same Hall–Petch fit gets retyped for every project, slightly differently each time.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Parameter studies</strong></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop over 5 temperatures is easy. The same study over 500, on a cluster, is a rewrite.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Handover</strong></p></td>
+<td><p>The chain leaves the company when the person does.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Scale-out</strong></p></td>
+<td><p>Moving from a laptop to a compute cluster means touching the science code.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A workflow framework fixes these by making the chain itself an <strong>object</strong> — something
+that exists, can be looked at, and can be handed to someone else. Once the chain is an
+object rather than a habit, it is inspectable, re-runnable, cacheable, transferable,
+parallelisable, and comparable between two versions.</p>
+<p><strong>And you do not have to write code to build one.</strong> In aiflow, the chain is a <em>graph</em>,
+and that one graph has three interfaces:</p>
+<p><img src="figures/intro_three_interfaces.svg" width="820"
+     alt="One typed workflow graph - Linspace, GrainGrowth, HallPetch, PlotYieldStrength - exposed through three interfaces: visual editor, Python, and AI assistant."></p>
+<p>Today is mostly the visual editor. The Python and the AI assistant will show up at the
+end — and you will see that they are producing exactly the same thing you built by hand.</p>
+</section>
+<hr class="docutils" />
+<section id="part-1-open-the-editor">
+<h2>Part 1 — Open the editor<a class="headerlink" href="#part-1-open-the-editor" title="Link to this heading">#</a></h2>
+<p>Run the cell below. (Click it and press <strong>Shift + Enter</strong>. That is the only
+keyboard skill this session requires.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyironflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyironFlow</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PyironFlow</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a1fc31d3e0274e369eb180efabdb6845", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa8eb7b3a10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="basic" src="_images/basic.png" /></p>
+<section id="what-you-are-looking-at">
+<h3>What you are looking at<a class="headerlink" href="#what-you-are-looking-at" title="Link to this heading">#</a></h3>
+<p><strong>Left — the node browser.</strong> A searchable library of ready-made building blocks, in two
+sections:</p>
+<ul class="simple">
+<li><p><strong>Nodes</strong> — individual operations (build a crystal, fit a curve, apply a potential).</p></li>
+<li><p><strong>Workflows</strong> — complete, saved chains that other people have built.</p></li>
+</ul>
+<p><strong>Middle — the canvas.</strong> Where your workflow lives.</p>
+<p><strong>Right — the inspector</strong>, with tabs: <strong>output</strong> (results), <strong>log</strong> (what happened),
+<strong>description</strong> (what this workflow is for), <strong>source</strong>, <strong>settings</strong>.</p>
+<p><strong>Top-right of the canvas</strong> — buttons to re-tidy the layout, <strong>Clear</strong> the canvas,
+<strong>Group selected nodes</strong>, and <strong>Convert to Python code</strong>.</p>
+<p><strong>Top bar</strong> — the workflow’s name, <strong>Save</strong>, <strong>Restore</strong>, and <code class="docutils literal notranslate"><span class="pre">+</span></code> to open another
+workflow in a new tab.</p>
+</section>
+<section id="the-only-three-concepts-you-need">
+<h3>The only three concepts you need<a class="headerlink" href="#the-only-three-concepts-you-need" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>What it means</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Node</strong></p></td>
+<td><p>One step. It takes some inputs and produces some outputs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Port</strong></p></td>
+<td><p>One input or one output of a node — the little dots on its edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Edge</strong></p></td>
+<td><p>A line saying <em>“this result becomes that input.”</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>And one rule that explains the rest:</p>
+<blockquote>
+<div><p><strong>Pressing ▶ Run on a node runs everything that node depends on, first.</strong></p>
+</div></blockquote>
+<p>There is no separate “run the whole workflow” button, because there does not need to be.
+Run the last node and the whole chain executes in the right order. Run it again after
+changing one number and only the affected part is recomputed.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-build-a-workflow-by-hand">
+<h2>Part 2 — Build a workflow by hand<a class="headerlink" href="#part-2-build-a-workflow-by-hand" title="Link to this heading">#</a></h2>
+<p><strong>This is the main exercise.</strong> Use the empty canvas above.</p>
+<p>The model: <em>a steel is annealed; its grains coarsen; coarser grains mean lower yield
+strength.</em> We want the strength as a function of the annealing schedule.</p>
+<p>Here is the target — what your canvas should look like once the seven steps below are done:</p>
+<p><img src="figures/intro_workflow_chain.svg" width="900"
+     alt="Four connected nodes: Linspace feeds GrainGrowth, whose grain size output feeds both HallPetch and PlotYieldStrength."></p>
+<section id="step-by-step">
+<h3>Step by step<a class="headerlink" href="#step-by-step" title="Link to this heading">#</a></h3>
+<p><strong>1. The annealing times.</strong>
+In the search box on the left, type <code class="docutils literal notranslate"><span class="pre">Linspace</span></code>. Drag it onto the canvas.
+Set <code class="docutils literal notranslate"><span class="pre">x_min</span> <span class="pre">=</span> <span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">x_max</span> <span class="pre">=</span> <span class="pre">240</span></code>, <code class="docutils literal notranslate"><span class="pre">num_points</span> <span class="pre">=</span> <span class="pre">40</span></code> — annealing times from 10 minutes
+to 4 hours.</p>
+<blockquote>
+<div><p><em>Why a node and not just a list of numbers?</em> Because now the range is part of the
+workflow. Anyone who opens it can see it and change it — it isn’t buried inside a
+script.</p>
+</div></blockquote>
+<p><strong>2. The grain-growth model.</strong>
+Search for <code class="docutils literal notranslate"><span class="pre">GrainGrowth</span></code> and drag it on. Now connect them: <strong>click and drag from the
+<code class="docutils literal notranslate"><span class="pre">linspace</span></code> output dot on the right of the Linspace node, to the <code class="docutils literal notranslate"><span class="pre">time</span></code> input dot on
+the GrainGrowth node.</strong> A line appears — that is your first edge.</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">temperature_K</span> <span class="pre">=</span> <span class="pre">1123</span></code> (850 °C).</p>
+<p><strong>3. Run it early.</strong>
+Press <strong>▶ Run</strong> on the GrainGrowth node and look at the <strong>output</strong> tab. You should see
+an array of grain sizes, rising from about <strong>12.9 µm</strong> to about <strong>58.4 µm</strong>.</p>
+<p>Notice that <strong>you never ran the Linspace node.</strong> aiflow worked out that it was needed
+and ran it for you. That is the dependency rule doing its job.</p>
+<p><strong>4. The strength model.</strong>
+Drag on <code class="docutils literal notranslate"><span class="pre">HallPetch</span></code>. Connect <code class="docutils literal notranslate"><span class="pre">GrainGrowth.grain_size_um</span></code> → <code class="docutils literal notranslate"><span class="pre">HallPetch.grain_size_um</span></code>.</p>
+<p><strong>5. The plot.</strong>
+Drag on <code class="docutils literal notranslate"><span class="pre">PlotYieldStrength</span></code>. This one needs <strong>two</strong> connections:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GrainGrowth.grain_size_um</span></code> → <code class="docutils literal notranslate"><span class="pre">grain_size_um</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HallPetch.sigma_y_MPa</span></code> → <code class="docutils literal notranslate"><span class="pre">sigma_y_MPa</span></code></p></li>
+</ul>
+<p>Press <strong>▶ Run</strong> on the plot node. The figure appears in the <strong>output</strong> tab: yield
+strength falling from roughly <strong>276 MPa</strong> to <strong>167 MPa</strong> as the grains coarsen.</p>
+<p><strong>6. Now change something.</strong>
+Set <code class="docutils literal notranslate"><span class="pre">temperature_K</span> <span class="pre">=</span> <span class="pre">1223</span></code> and press <strong>▶ Run</strong> again. Watch the downstream nodes mark
+themselves as out of date, then recompute. The strength drops further — the hotter
+anneal coarsens the microstructure more.</p>
+<p><strong>7. Save it.</strong>
+Type a name — <code class="docutils literal notranslate"><span class="pre">anneal_and_strength</span></code> — in the top bar and press <strong>Save</strong>. It now appears
+under <strong>Workflows</strong> in the left-hand browser, and your colleague can open it by name.</p>
+</section>
+<section id="stop-and-notice-what-just-happened">
+<h3>Stop and notice what just happened<a class="headerlink" href="#stop-and-notice-what-just-happened" title="Link to this heading">#</a></h3>
+<p>You built a complete, documented, re-runnable process–property model. It is saved, it is
+shareable, and every assumption in it — the temperature, the time range, the Hall–Petch
+constants — is visible on screen rather than buried in someone’s script.</p>
+<p><strong>The only thing you typed was numbers.</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-group-it-sweep-it-and-see-the-code-it-wrote">
+<h2>Part 3 — Group it, sweep it, and see the code it wrote<a class="headerlink" href="#part-3-group-it-sweep-it-and-see-the-code-it-wrote" title="Link to this heading">#</a></h2>
+<section id="grouping-making-a-reusable-process-step">
+<h3>Grouping: making a reusable process step<a class="headerlink" href="#grouping-making-a-reusable-process-step" title="Link to this heading">#</a></h3>
+<p>Click the <code class="docutils literal notranslate"><span class="pre">GrainGrowth</span></code> node, then shift-click <code class="docutils literal notranslate"><span class="pre">HallPetch</span></code> so both are selected. Press
+<strong>Group selected nodes</strong>.</p>
+<p>The two nodes collapse into one. You now have a single <em>“anneal and strengthen”</em> step
+with a temperature and a time going in and a strength coming out. Use <strong>Expand</strong> to look
+inside it, <strong>Collapse</strong> to close it again, <strong>Ungroup</strong> to undo.</p>
+<p>This is how a piece of your group’s know-how becomes a reusable component. The internals
+are still there and still auditable — they are just not in the way any more.</p>
+</section>
+<section id="sweeping-the-parameter-study-you-didn-t-have-to-write">
+<h3>Sweeping: the parameter study you didn’t have to write<a class="headerlink" href="#sweeping-the-parameter-study-you-didn-t-have-to-write" title="Link to this heading">#</a></h3>
+<p><em>(Watch this one — your presenter will demonstrate it.)</em></p>
+<p>Drag on an <code class="docutils literal notranslate"><span class="pre">IterToDataFrame</span></code> node. Connect your new group node into its <code class="docutils literal notranslate"><span class="pre">node</span></code> port (it
+draws as a dashed line — it means “this is the thing to repeat”), set
+<code class="docutils literal notranslate"><span class="pre">input_label</span> <span class="pre">=</span> <span class="pre">&quot;temperature_K&quot;</span></code>, and feed its <code class="docutils literal notranslate"><span class="pre">values</span></code> from a second <code class="docutils literal notranslate"><span class="pre">Linspace</span></code>.</p>
+<p>Run it. You get a table of yield strength against annealing temperature.</p>
+<p>Two things worth pointing out:</p>
+<ul class="simple">
+<li><p>The swept values come from a <strong>node</strong>, not a typed-in list, so the range stays a
+visible, editable part of the workflow.</p></li>
+<li><p>Every node has an <strong>executor</strong> port (under the <strong>Ports ▾</strong> menu). Wire a cluster
+executor into it and this same graph runs its 40 cases in parallel on a compute
+cluster. <em>The science part does not change at all.</em> This is the step that is normally
+a rewrite.</p></li>
+</ul>
+</section>
+<section id="the-reveal">
+<h3>The reveal<a class="headerlink" href="#the-reveal" title="Link to this heading">#</a></h3>
+<p>(Not part of our hands-on session but you may later run it.)</p>
+<p>Press <strong>Convert to Python code</strong>.</p>
+<p>The workflow you just built by dragging appears as clean, readable Python. <strong>You have
+been writing code all along</strong> — you just did it with a mouse. If you ever want to read
+it, edit it, put it under version control, or send it to a colleague who prefers text,
+it is right there.</p>
+<p>It works in the other direction too. Here is that same workflow written directly in
+Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Workflow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyiron_nodes.math_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Linspace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyiron_nodes.tutorial.heat_treatment</span><span class="w"> </span><span class="kn">import</span> <span class="n">GrainGrowth</span><span class="p">,</span> <span class="n">HallPetch</span><span class="p">,</span> <span class="n">PlotYieldStrength</span>
+
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="s2">"anneal_and_strength"</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">anneal_times</span> <span class="o">=</span> <span class="n">Linspace</span><span class="p">(</span><span class="n">x_min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">x_max</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">grain</span> <span class="o">=</span> <span class="n">GrainGrowth</span><span class="p">(</span><span class="n">temperature_K</span><span class="o">=</span><span class="mf">1123.0</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">wf</span><span class="o">.</span><span class="n">anneal_times</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">strength</span> <span class="o">=</span> <span class="n">HallPetch</span><span class="p">(</span><span class="n">grain_size_um</span><span class="o">=</span><span class="n">wf</span><span class="o">.</span><span class="n">grain</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">PlotYieldStrength</span><span class="p">(</span><span class="n">grain_size_um</span><span class="o">=</span><span class="n">wf</span><span class="o">.</span><span class="n">grain</span><span class="p">,</span> <span class="n">sigma_y_MPa</span><span class="o">=</span><span class="n">wf</span><span class="o">.</span><span class="n">strength</span><span class="p">)</span>
+
+<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">grain</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">grain_size_um</span><span class="o">.</span><span class="n">value</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">strength</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">sigma_y_MPa</span><span class="o">.</span><span class="n">value</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"grain size     </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> um  -&gt;  </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> um"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"yield strength </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MPa  -&gt;  </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MPa"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>grain size     12.9 um  -&gt;  58.4 um
+yield strength 276 MPa  -&gt;  167 MPa
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/db3881fccde3c942889b0b6f7e3f3d36d45bc292398a94b28e17f6708251b330.png" src="_images/db3881fccde3c942889b0b6f7e3f3d36d45bc292398a94b28e17f6708251b330.png" />
+</div>
+</div>
+<p>Five lines of Python and seven drag-and-drop steps produce <strong>the same object</strong>. Send this
+workflow to the editor and it appears on the canvas, laid out and ready to run.</p>
+<p>The editor opens with two tabs: your <code class="docutils literal notranslate"><span class="pre">anneal_and_strength</span></code> workflow on the left, and <code class="docutils literal notranslate"><span class="pre">anneal_and_strength_loop</span></code> — the swept version from Part 3 — on the right.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PyironFlow</span><span class="p">([</span><span class="n">wf</span><span class="p">,</span> <span class="s2">"anneal_and_strength_loop"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9ff110ea64104d8c850d8fd890605df2", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa72c19d190&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="loop" src="_images/loop.png" /></p>
+</section>
+<section id="one-more-thing-the-graph-buys-you-caching">
+<h3>One more thing the graph buys you: caching<a class="headerlink" href="#one-more-thing-the-graph-buys-you-caching" title="Link to this heading">#</a></h3>
+<p>Every node has a <strong>store</strong> switch in its <strong>Ports ▾</strong> menu. Turn it on and the node’s
+result is filed away under a fingerprint of its inputs. Next time anything asks for the
+same computation with the same inputs, it is loaded instead of recomputed — and the node
+lights up to tell you it came from cache.</p>
+<p>For a 30-millisecond Hall–Petch fit this is irrelevant. For a three-hour DFT calculation that
+sits upstream of a plot you keep re-tweaking, it is the difference between a workflow you
+use and one you avoid. <em>(It needs a database server, so we are describing it rather than
+running it today.)</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-an-ai-generated-workflow">
+<h2>Part 4 — An AI-generated workflow<a class="headerlink" href="#part-4-an-ai-generated-workflow" title="Link to this heading">#</a></h2>
+<section id="the-question">
+<h3>The question<a class="headerlink" href="#the-question" title="Link to this heading">#</a></h3>
+<p>High-manganese austenitic steels get their remarkable combination of strength and
+ductility from <em>how</em> they deform. Two mechanisms compete, and which one wins is set by a
+single quantity — the <strong>stacking fault energy</strong> (SFE):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>SFE</p></th>
+<th class="head"><p>Dominant mechanism</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>&lt; 20 mJ/m²</strong></p></td>
+<td><p><strong>TRIP</strong></p></td>
+<td><p>strain-induced γ → ε martensite</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>20 – 45 mJ/m²</strong></p></td>
+<td><p><strong>TWIP</strong></p></td>
+<td><p>mechanical twinning</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>&gt; 45 mJ/m²</strong></p></td>
+<td><p>ordinary slip</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>and the SFE follows from composition through the Olson–Cohen/Allain model:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{SFE} = 2\rho\,\Delta G^{\gamma\rightarrow\varepsilon} + 2\sigma\]</div>
+<p>Getting from <em>“here is my composition”</em> to <em>“here is the deformation mechanism”</em> means
+chaining half a dozen models together. That is precisely a workflow.</p>
+</section>
+<section id="the-prompt">
+<h3>The prompt<a class="headerlink" href="#the-prompt" title="Link to this heading">#</a></h3>
+<p>The workflow you are about to open was not written by a person. It was generated from
+<strong>one sentence</strong>:</p>
+<blockquote>
+<div><p><em>“Make a workflow that tells for a given <code class="docutils literal notranslate"><span class="pre">Fe_(1-x)X_x</span></code> high-strength steel whether its
+deformation process is dominated by the TRIP or the TWIP process.”</em></p>
+</div></blockquote>
+<p>That sentence went into the <strong>AI Assistant</strong> panel in this same editor. The assistant
+searched the node library, drafted a graph, <strong>ran it</strong>, read the errors, repaired them,
+re-ran, and finally tidied the layout. Its controls are the ones you would expect:
+which model, <em>create</em> a new workflow or <em>edit</em> the open one, just check that it builds or
+insist that it actually executes, and how many repair attempts to allow.</p>
+<p><em>(We generated it ahead of time so we are not waiting on an API during the session.)</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PyironFlow</span><span class="p">([</span><span class="s2">"Steel_TWIP_TRIP"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4bf37efe6344effaea77176e25d881e", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa72c36ba10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="steel" src="_images/steel.png" /></p>
+</section>
+<section id="try-it">
+<h3>Try it<a class="headerlink" href="#try-it" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Read the <strong>description</strong> tab. The assistant documented its own workflow.</p></li>
+<li><p>Press <strong>▶ Run</strong> on <code class="docutils literal notranslate"><span class="pre">alloy_verdict</span></code> and read the verdict in the <strong>output</strong> tab.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">mode_map_plot</span></code> and <code class="docutils literal notranslate"><span class="pre">mode_map_table</span></code> — the SFE across the whole composition range,
+with the TRIP / TWIP / slip regions marked.</p></li>
+<li><p>Press <strong>Expand</strong> on the <code class="docutils literal notranslate"><span class="pre">compute</span></code> node. Those eight inner nodes are the physics:
+lattice parameter → planar packing density → driving force ΔG → SFE → martensite
+accessibility → classification. <strong>Every intermediate is a port you can click on.</strong></p></li>
+<li><p><strong>Change the answer</strong>: in <code class="docutils literal notranslate"><span class="pre">alloy_definition</span></code>, set <code class="docutils literal notranslate"><span class="pre">x_solute</span></code> from <code class="docutils literal notranslate"><span class="pre">0.22</span></code> to <code class="docutils literal notranslate"><span class="pre">0.32</span></code> and
+re-run. The verdict flips from <strong>TRIP-dominated</strong> to <strong>TWIP-dominated</strong>.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">solute_element</span></code> to <code class="docutils literal notranslate"><span class="pre">Al</span></code> and re-run. Notice that the verdict now prints a
+calibration warning about itself.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The same thing headless, so the numbers are on the page for anyone reading later.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Workflow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">paths</span>
+
+<span class="c1"># The shared workflow library - exactly what the browser's "Workflows" section shows.</span>
+<span class="n">WORKFLOWS</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">paths</span><span class="o">.</span><span class="n">WORKFLOW_STORAGE</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">steel</span> <span class="o">=</span> <span class="n">Workflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">WORKFLOWS</span> <span class="o">/</span> <span class="s2">"Steel_TWIP_TRIP.py"</span><span class="p">)</span>
+<span class="n">steel</span><span class="o">.</span><span class="n">alloy_definition</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x_solute</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.22</span>
+<span class="n">steel</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">steel</span><span class="o">.</span><span class="n">alloy_verdict</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">verdict</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<h1 class="rubric" id="fe-1-x-mn-x-x-0-220-22-0-at-mn-at-300-k">Fe(1-x)Mn(x), x = 0.220 (22.0 at.% Mn) at 300 K</h1>
+<p><strong>Verdict: TRIP-dominated (strain-induced gamma -&gt; epsilon martensite)</strong></p>
+<ul class="simple">
+<li><p>Stacking fault energy: <strong>15.6 mJ/m^2</strong></p></li>
+<li><p>Driving force dG(gamma-&gt;epsilon): -421 J/mol (epsilon stable)</p></li>
+<li><p>Md(epsilon): 445 K – deformation temperature is below it, so the transformation can be triggered mechanically</p></li>
+<li><p>TRIP/TWIP boundary of this system: x = 0.268 (26.8 at.% Mn); the alloy sits -4.8 at.% from it</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steel</span><span class="o">.</span><span class="n">alloy_definition</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x_solute</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.32</span>
+<span class="n">steel</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">steel</span><span class="o">.</span><span class="n">alloy_verdict</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">verdict</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<h1 class="rubric" id="fe-1-x-mn-x-x-0-320-32-0-at-mn-at-300-k">Fe(1-x)Mn(x), x = 0.320 (32.0 at.% Mn) at 300 K</h1>
+<p><strong>Verdict: TWIP-dominated (mechanical twinning)</strong></p>
+<ul class="simple">
+<li><p>Stacking fault energy: <strong>23.8 mJ/m^2</strong></p></li>
+<li><p>Driving force dG(gamma-&gt;epsilon): -283 J/mol (epsilon stable)</p></li>
+<li><p>Md(epsilon): 417 K – deformation temperature is below it, so the transformation can be triggered mechanically</p></li>
+<li><p>TRIP/TWIP boundary of this system: x = 0.268 (26.8 at.% Mn); the alloy sits +5.2 at.% from it</p></li>
+</ul>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steel</span><span class="o">.</span><span class="n">mode_map_plot</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/46595bb028921368eca90e8089f796d5b1a739581d41c8d1c60002c9918d97dc.png" src="_images/46595bb028921368eca90e8089f796d5b1a739581d41c8d1c60002c9918d97dc.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="why-this-matters-for-ai-guided-research">
+<h2>Why this matters for AI-guided research<a class="headerlink" href="#why-this-matters-for-ai-guided-research" title="Link to this heading">#</a></h2>
+<p>This is the part worth taking back to the office.</p>
+<p><strong>1. An LLM can already write you a script. That is not the problem.</strong>
+The problem is what you get: a few hundred lines you have to read carefully before you
+can trust the number at the bottom, that don’t compose with the next script it writes,
+and that keep no record of what was actually run. You have traded “I did the work” for
+“I have to review the work,” and reviewing is often the slower half.</p>
+<p><strong>2. A node library is a constrained vocabulary.</strong>
+When the assistant builds a graph, it selects from named, typed, documented operations
+instead of inventing API calls from memory. Connecting an energy where a structure is
+expected is rejected when the graph is <em>built</em> — not silently coerced into a wrong number
+two hours later.</p>
+<p><strong>3. The graph is something a machine can check.</strong>
+Because the workflow is a data structure, an automated harness can ask: does it parse?
+does it construct? does it execute? are the values physically plausible? does it survive
+being saved and reloaded? Each failure goes back to the model as a specific, actionable
+error. <strong>Verification is inside the loop, not something you do afterwards.</strong></p>
+<p><strong>4. Auditability is the point, not a bonus.</strong>
+A number from an agent is worth nothing if you cannot interrogate how it was produced. In
+that steel workflow, ΔG, the packing density, the SFE, and <code class="docutils literal notranslate"><span class="pre">M_d</span></code> are each a port you can
+click. <strong>You audit the model, not just the answer.</strong> This is the thing that makes
+human-in-the-loop actually possible rather than merely aspirational — and you saw a
+concrete case of it in Part 4, where an unsupported fit was hiding behind a plausible
+number until you looked at the curve.</p>
+<p><strong>5. One representation, three consumers.</strong>
+You on the canvas, your colleague in Python, the agent through the node library — all
+working on the same object. That is <em>why</em> an AI-proposed workflow can be handed to a
+person for checking, and a person’s workflow handed to an agent for extension. Without a
+shared representation, each handover is a translation, and every translation loses
+something.</p>
+<p><strong>6. Provenance and caching are what make autonomous exploration affordable.</strong>
+An agent exploring hundreds of compositions recomputes only what actually changed, and
+every number it reports traces back to the graph that produced it.</p>
+<section id="so-read-this-particular-result-critically">
+<h3>So read this particular result critically<a class="headerlink" href="#so-read-this-particular-result-critically" title="Link to this heading">#</a></h3>
+<p>The workflow above is a genuinely useful screening tool and an unfinished physical model.
+Both things are true, and the graph is what lets you tell them apart:</p>
+<ul class="simple">
+<li><p><strong>The thresholds are a modelling choice</strong>, not a law of nature. The assistant put them
+in their own <code class="docutils literal notranslate"><span class="pre">mode_criteria</span></code> node rather than hiding them inside a function, so you can
+see them and argue with them.</p></li>
+<li><p><strong>The parameters are calibrated for Fe–Mn.</strong> For other solutes they are <em>effective</em>
+values that reproduce the reported dSFE/dx slope but not the absolute SFE — which is
+why the verdict prints its own caution when you switch to Al.</p></li>
+<li><p><strong>The magnetic contribution is folded into the linear coefficients</strong>, so the workflow
+does not reproduce the known SFE minimum near 12 at.% Mn.</p></li>
+</ul>
+<p>None of these are hidden. You found them by reading nodes. That is the difference between
+a result you can put in front of a customer and a number from a black box.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-where-to-go-next">
+<h2>Part 5 — Where to go next<a class="headerlink" href="#part-5-where-to-go-next" title="Link to this heading">#</a></h2>
+<p><strong>Everything you learned today, in one list:</strong> drag a node on · connect two ports · type a
+number · press ▶ Run · select and <strong>Group</strong> · <strong>Save</strong> · <strong>Convert to Python code</strong>.</p>
+<p>For further examples, look at the appendix.</p>
+<p>That is the whole interface. Everything else is which nodes you reach for.</p>
+<p><strong>To keep going:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Use a colleague’s work</strong></p></td>
+<td><p>The <strong>Workflows</strong> section of the browser. Open one, read its description, run it, change a number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Contribute your own node</strong></p></td>
+<td><p>Right-click in the <strong>Nodes</strong> tree → <em>new module</em> / <em>new node</em>. You get a template to fill in. Today’s <code class="docutils literal notranslate"><span class="pre">GrainGrowth</span></code> and <code class="docutils literal notranslate"><span class="pre">HallPetch</span></code> live in <code class="docutils literal notranslate"><span class="pre">pyiron_nodes/tutorial/heat_treatment.py</span></code> and were added exactly that way.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Draft one with AI</strong></p></td>
+<td><p>The <strong>AI Assistant</strong> panel. Describe what you want in a sentence — then check what it built, node by node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Read the Python side</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">docs/llm_workflow_guide.md</span></code> for writing nodes and workflows in code, and the repository <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>The one idea to take away:</strong> the value is not that the graph runs. Your scripts already
+run. The value is that the chain became an <em>object</em> — one that you can hand to a
+colleague, to a cluster, or to an AI assistant, and get back something you are still able
+to check.</p>
+</section>
+<hr class="docutils" />
+<section id="appendix-a-real-simulation-same-machinery">
+<h2>Appendix — A real simulation, same machinery<a class="headerlink" href="#appendix-a-real-simulation-same-machinery" title="Link to this heading">#</a></h2>
+<p>So far the nodes have been simple formulas. Nothing changes when the nodes are doing real
+physics. Run the cell below to open a prepared workflow.</p>
+<p>Read the <strong>description</strong> tab first — every saved workflow carries its own documentation.</p>
+<p>This one measures the <strong>bulk modulus of copper</strong> the way you would in a simulation study:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> Bulk(Cu)  ──▶  strain the cell  ──▶  compute energy  ──▶  table  ──▶  fit  ──▶  plot
+                     ▲                      ▲                         (B₀, V₀)
+                 Linspace                 EMT
+              (±15% volume)            (the engine)
+</pre></div>
+</div>
+<section id="id1">
+<h3>Try it<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Press <strong>▶ Run</strong> on <code class="docutils literal notranslate"><span class="pre">eos_fit</span></code>. The whole chain executes in under a second.
+You should get <strong>a₀ ≈ 3.590 Å</strong> (experiment: 3.615) and <strong>B₀ ≈ 134 GPa</strong>
+(experiment: 140).</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">ev_plot</span></code> to see the energy–volume curve the fit is based on.</p></li>
+<li><p>Now <strong>change the material</strong>: in the <code class="docutils literal notranslate"><span class="pre">cu_fcc</span></code> node, change <code class="docutils literal notranslate"><span class="pre">name</span></code> from <code class="docutils literal notranslate"><span class="pre">Cu</span></code> to <code class="docutils literal notranslate"><span class="pre">Ni</span></code>,
+and press <strong>▶ Run</strong> again. You get <strong>a₀ ≈ 3.487 Å</strong> and <strong>B₀ ≈ 177 GPa</strong>
+(experiment: 180).</p></li>
+</ol>
+<p>One field. Different material. Same workflow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PyironFlow</span><span class="p">([</span><span class="s2">"Cu_bulk_modulus"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8362920cdde041efa4bdcf6388110686", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pyironflow.gui.PyironFlow at 0x7aa71f012c30&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="bulk_modulus" src="_images/bulk_modulus.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The same thing headless, so the numbers are on the page for anyone reading later.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Workflow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">paths</span>
+
+<span class="c1"># The shared workflow library - exactly what the browser's "Workflows" section shows.</span>
+<span class="n">WORKFLOWS</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">paths</span><span class="o">.</span><span class="n">WORKFLOW_STORAGE</span><span class="p">)</span>
+<span class="n">aa</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Cu"</span><span class="p">,</span> <span class="s2">"Ni"</span><span class="p">]:</span>
+    <span class="n">wf_eos</span> <span class="o">=</span> <span class="n">Workflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">WORKFLOWS</span> <span class="o">/</span> <span class="s2">"Cu_bulk_modulus.py"</span><span class="p">)</span>
+    <span class="n">wf_eos</span><span class="o">.</span><span class="n">cu_fcc</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">element</span>
+    <span class="n">wf_eos</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+    <span class="n">V0</span> <span class="o">=</span> <span class="n">wf_eos</span><span class="o">.</span><span class="n">eos_fit</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">V0</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">B0</span> <span class="o">=</span> <span class="n">wf_eos</span><span class="o">.</span><span class="n">eos_fit</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">B0_GPa</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">wf_eos</span><span class="o">.</span><span class="n">ev_table</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">ev_curve_df</span><span class="o">.</span><span class="n">value</span>
+    <span class="n">bracketed</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">V0</span> <span class="o">&lt;=</span> <span class="n">table</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">element</span><span class="si">}</span><span class="s2">:  a0 = </span><span class="si">{</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">V0</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> A   "</span>
+        <span class="sa">f</span><span class="s2">"B0 = </span><span class="si">{</span><span class="n">B0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GPa   minimum inside the scanned range: </span><span class="si">{</span><span class="n">bracketed</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cu:  a0 = 3.590 A   B0 = 133.6 GPa   minimum inside the scanned range: True
+Ni:  a0 = 3.487 A   B0 = 177.5 GPa   minimum inside the scanned range: True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="before-you-trust-either-number-look-at-the-plot">
+<h3>⚠️ Before you trust either number, look at the plot<a class="headerlink" href="#before-you-trust-either-number-look-at-the-plot" title="Link to this heading">#</a></h3>
+<p>That last column is not decoration. A Birch–Murnaghan fit only means anything if the
+energy <strong>minimum lies inside the volumes you actually computed</strong>. If it doesn’t, the fit
+extrapolates — and it will still hand you a confident-looking number.</p>
+<p>This is not hypothetical. When this workflow was first written, the volume scan was
+±6 %. Fine for copper. But switch to nickel, whose equilibrium volume is 9 % smaller, and
+the minimum falls off the end of the scan: the fit reports <strong>181.6 GPa</strong> instead of
+<strong>177.5 GPa</strong>, with no warning at all. The scan is ±15 % now for exactly that reason. Set
+the element to <code class="docutils literal notranslate"><span class="pre">Ag</span></code> or <code class="docutils literal notranslate"><span class="pre">Au</span></code> and you will break it again — those need a different starting
+lattice constant too.</p>
+<p><strong>The graph did not prevent that mistake. It made it visible.</strong> The intermediate table and
+the E–V curve are named, clickable outputs, not temporary variables inside somebody’s
+script. Hold on to this — it is the whole argument in Part 5, in miniature.</p>
+</section>
+<section id="and-the-engine-is-just-another-node">
+<h3>And the engine is just another node<a class="headerlink" href="#and-the-engine-is-just-another-node" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">EMT</span></code> is a fast, approximate potential — it is here so the workflow runs instantly.
+Replace that one node with a machine-learning potential (e.g. GRACE) or a DFT engine and the physics
+changes while <strong>the shape of the workflow does not</strong>. The <code class="docutils literal notranslate"><span class="pre">EOS_Bulk_modulus</span></code> workflow in
+the browser is this same graph driven by a foundation potential. This is also where the
+<code class="docutils literal notranslate"><span class="pre">store</span></code> cache stops being a nicety.</p>
+<hr class="docutils" />
+<p>© 2026, Jörg Neugebauer, Max Planck Institute for Sustainable Materials</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Platform Material Digital General Assembly</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hands-on-introduction-to-pyiron-aiflow">A hands-on introduction to <strong>pyiron aiflow</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-why-an-explicit-workflow-layer">Part 0 — Why an explicit workflow layer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-open-the-editor">Part 1 — Open the editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-are-looking-at">What you are looking at</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-only-three-concepts-you-need">The only three concepts you need</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-build-a-workflow-by-hand">Part 2 — Build a workflow by hand</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step by step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-and-notice-what-just-happened">Stop and notice what just happened</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-group-it-sweep-it-and-see-the-code-it-wrote">Part 3 — Group it, sweep it, and see the code it wrote</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-making-a-reusable-process-step">Grouping: making a reusable process step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sweeping-the-parameter-study-you-didn-t-have-to-write">Sweeping: the parameter study you didn’t have to write</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-reveal">The reveal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-more-thing-the-graph-buys-you-caching">One more thing the graph buys you: caching</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-an-ai-generated-workflow">Part 4 — An AI-generated workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-question">The question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-prompt">The prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it">Try it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-for-ai-guided-research">Why this matters for AI-guided research</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#so-read-this-particular-result-critically">So read this particular result critically</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-where-to-go-next">Part 5 — Where to go next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-real-simulation-same-machinery">Appendix — A real simulation, same machinery</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Try it</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-trust-either-number-look-at-the-plot">⚠️ Before you trust either number, look at the plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-the-engine-is-just-another-node">And the engine is just another node</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jan Janssen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
