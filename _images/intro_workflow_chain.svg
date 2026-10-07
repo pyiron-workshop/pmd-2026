@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img"
+     aria-label="Four connected nodes: Linspace feeds GrainGrowth, whose grain size output feeds both HallPetch and PlotYieldStrength.">
+  <defs>
+    <marker id="ah" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#D55E00"/>
+    </marker>
+    <marker id="ahg" markerWidth="7" markerHeight="7" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#009E73"/>
+    </marker>
+    <style>
+      .title { font: 700 19px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .sub   { font: 400 13px Helvetica, Arial, sans-serif; fill:#6b6b6b }
+      .cue   { font: 700 13px Helvetica, Arial, sans-serif; fill:#B34C00 }
+      .nname { font: 700 13px Helvetica, Arial, sans-serif; fill:#1a1a1a }
+      .mono  { font: 400 11px "SF Mono", Menlo, Consolas, monospace; fill:#1a1a1a }
+      .dedge { fill:none; stroke:#009E73; stroke-width:1.6 }
+      .card  { fill:#ffffff; stroke:#0072B2; stroke-width:1.5 }
+      .hdr   { fill:#eef3f8 }
+      .rule  { stroke:#dddddd; stroke-width:1 }
+      .vbox  { fill:#ffffff; stroke:#dddddd; stroke-width:1 }
+      .cbox  { fill:#e8f6f1; stroke:#009E73; stroke-width:1 }
+      .dot   { fill:#0072B2 }
+      .gdot  { fill:#009E73 }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="380" fill="#ffffff"/>
+
+  <text class="title" x="20" y="34">What your canvas should look like when the seven steps are done</text>
+  <text class="sub"   x="20" y="56">Green = wired to another node &#183; white = a number you typed in</text>
+
+  <!-- ══════════ Linspace ══════════ -->
+  <g>
+    <rect class="card" x="20" y="86" width="180" height="136" rx="7"/>
+    <path class="hdr" d="M20.75,92.75 a6,6 0 0 1 6,-6 H193.25 a6,6 0 0 1 6,6 V112 H20.75 Z"/>
+    <path d="M20.75,112 H199.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="nname" x="34" y="105">Linspace</text>
+
+    <rect class="vbox" x="34" y="122" width="152" height="18" rx="3"/>
+    <text class="mono" x="40" y="135">x_min = 10</text>
+    <rect class="vbox" x="34" y="145" width="152" height="18" rx="3"/>
+    <text class="mono" x="40" y="158">x_max = 240</text>
+    <rect class="vbox" x="34" y="168" width="152" height="18" rx="3"/>
+    <text class="mono" x="40" y="181">num_points = 40</text>
+
+    <path class="rule" d="M20,194 H200"/>
+    <text class="mono" x="186" y="211" text-anchor="end">linspace</text>
+    <circle class="gdot" cx="200" cy="206" r="4.5"/>
+  </g>
+
+  <!-- ══════════ GrainGrowth ══════════ -->
+  <g>
+    <rect class="card" x="258" y="86" width="196" height="113" rx="7"/>
+    <path class="hdr" d="M258.75,92.75 a6,6 0 0 1 6,-6 H447.25 a6,6 0 0 1 6,6 V112 H258.75 Z"/>
+    <path d="M258.75,112 H453.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="nname" x="272" y="105">GrainGrowth</text>
+
+    <circle class="gdot" cx="258" cy="131" r="4.5"/>
+    <rect class="cbox" x="272" y="122" width="90" height="18" rx="3"/>
+    <text class="mono" x="278" y="135">time</text>
+
+    <rect class="vbox" x="272" y="145" width="164" height="18" rx="3"/>
+    <text class="mono" x="278" y="158">temperature_K = 1123</text>
+
+    <path class="rule" d="M258,171 H454"/>
+    <text class="mono" x="440" y="188" text-anchor="end">grain_size_um</text>
+    <circle class="gdot" cx="454" cy="183" r="4.5"/>
+  </g>
+
+  <!-- ══════════ HallPetch ══════════ -->
+  <g>
+    <rect class="card" x="512" y="86" width="176" height="90" rx="7"/>
+    <path class="hdr" d="M512.75,92.75 a6,6 0 0 1 6,-6 H681.25 a6,6 0 0 1 6,6 V112 H512.75 Z"/>
+    <path d="M512.75,112 H687.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="nname" x="526" y="105">HallPetch</text>
+
+    <circle class="gdot" cx="512" cy="131" r="4.5"/>
+    <rect class="cbox" x="526" y="122" width="134" height="18" rx="3"/>
+    <text class="mono" x="532" y="135">grain_size_um</text>
+
+    <path class="rule" d="M512,148 H688"/>
+    <text class="mono" x="674" y="165" text-anchor="end">sigma_y_MPa</text>
+    <circle class="gdot" cx="688" cy="160" r="4.5"/>
+  </g>
+
+  <!-- ══════════ PlotYieldStrength ══════════ -->
+  <g>
+    <rect class="card" x="746" y="86" width="204" height="113" rx="7"/>
+    <path class="hdr" d="M746.75,92.75 a6,6 0 0 1 6,-6 H943.25 a6,6 0 0 1 6,6 V112 H746.75 Z"/>
+    <path d="M746.75,112 H949.25" stroke="#0072B2" stroke-width="1" fill="none"/>
+    <text class="nname" x="760" y="105">PlotYieldStrength</text>
+
+    <circle class="gdot" cx="746" cy="131" r="4.5"/>
+    <rect class="cbox" x="760" y="122" width="134" height="18" rx="3"/>
+    <text class="mono" x="766" y="135">grain_size_um</text>
+
+    <circle class="gdot" cx="746" cy="154" r="4.5"/>
+    <rect class="cbox" x="760" y="145" width="134" height="18" rx="3"/>
+    <text class="mono" x="766" y="158">sigma_y_MPa</text>
+
+    <path class="rule" d="M746,171 H950"/>
+    <text class="mono" x="936" y="188" text-anchor="end">fig</text>
+    <circle class="dot" cx="950" cy="183" r="4.5"/>
+  </g>
+
+  <!-- ══════════ edges ══════════ -->
+  <path class="dedge" d="M205,206 C 224,206 238,131 252,131" marker-end="url(#ahg)"/>
+  <path class="dedge" d="M459,183 C 476,183 492,131 506,131" marker-end="url(#ahg)"/>
+  <path class="dedge" d="M693,160 C 710,160 726,154 740,154" marker-end="url(#ahg)"/>
+  <!-- the fork, routed clear of every card, entering horizontally from the left -->
+  <path class="dedge" d="M457,188 C 468,246 476,300 540,300 L 660,300 C 706,300 714,131 740,131"
+        marker-end="url(#ahg)"/>
+
+  <!-- ══════════ fork callout ══════════ -->
+  <circle cx="454" cy="183" r="9" fill="none" stroke="#D55E00" stroke-width="1.6"/>
+  <path d="M444,216 C 449,208 451,200 452,193" fill="none" stroke="#D55E00" stroke-width="1.4"
+        stroke-dasharray="3 3" marker-end="url(#ah)"/>
+  <text class="cue" x="440" y="232" text-anchor="end">one output, two connections</text>
+  <text class="sub" x="440" y="250" text-anchor="end">Step 5: grain size feeds the plot too</text>
+
+  <text class="sub" x="20" y="356">Press &#9654; Run on PlotYieldStrength and the whole chain executes in dependency order.</text>
+</svg>
