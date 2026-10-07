@@ -9,7 +9,7 @@ Based on the internal [notebooks.mpcdf.mpg.de/binder](https://notebooks.mpcdf.mp
 ## Part 2 - Introduction to pyiron_aiflow
 Based on the public [mybinder.org](https://mybinder.org): 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jan-janssen/pmd-2026/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pyiron-workshop/pmd-2026/HEAD)
 
 Based on the internal [notebooks.mpcdf.mpg.de/binder](https://notebooks.mpcdf.mpg.de/binder):
 

@@ -1,0 +1,28 @@
+#!/bin/bash
+# Install pyiron_aiflow 
+mkdir pyiron_core_data
+tar -xzf pyiron_aiflow-main.tar.gz
+cd pyiron_aiflow-main/pyironflow
+
+# Workaround
+cp ../../pyproject.toml .
+npm install
+npm run build
+mkdir -p ./src/pyironflow/static
+cp ./node_modules/ngl/dist/ngl.js ./src/pyironflow/static/ngl.js
+cd ..
+
+# Installation
+pip install ./pyiron_ai ./pyiron_core ./pyiron_database ./pyironflow --no-deps --no-build-isolation
+mv demos ../pyiron_core_data/workflows
+cd ..
+rm -rf pyiron_aiflow-main pyiron_aiflow-main.tar.gz 
+
+# Install pyiron_nodes
+tar -xzf pyiron_nodes-Joerg_merge_vasp.tar.gz
+mv pyiron_nodes-Joerg_merge_vasp pyiron_nodes
+rm -rf pyiron_nodes-Joerg_merge_vasp.tar.gz
+
+# Clean up 
+rm postBuild README.md environment.yml pyproject.toml
+

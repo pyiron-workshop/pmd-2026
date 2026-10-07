@@ -1,0 +1,4 @@
+format: jb-book
+root: README
+chapters:
+- file: aiflow_intro_hands_on.ipynb
